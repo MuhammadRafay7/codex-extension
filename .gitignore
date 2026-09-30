@@ -1,0 +1,9 @@
+node_modules/
+.venv/
+dist/
+schema/
+schema-current/
+*.vsix
+*.map
+.DS_Store
+vsc-extension-quickstart.md

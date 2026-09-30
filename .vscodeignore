@@ -1,0 +1,13 @@
+node_modules/**
+.venv/**
+schema/**
+schema-current/**
+src/**
+tests/**
+tsconfig.json
+webpack.config.js
+package-lock.json
+vsc-extension-quickstart.md
+*.vsix
+.gitignore
+dist/*.map

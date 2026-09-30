@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="{{CSP}}">
+  <link rel="stylesheet" href="{{STYLE_URI}}">
+  <title>Codex Custom Settings</title>
+</head>
+<body>
+  <main class="settings-page">
+    <header><div class="brand-mark">✦</div><div><p class="eyebrow">CODEX CUSTOM</p><h1>Settings</h1><p>Make the extension feel right in your editor.</p></div></header>
+    <section class="settings-card" aria-labelledby="appearance-title">
+      <div class="section-head"><h2 id="appearance-title">Appearance</h2><p>Choose how the sidebar, chat, and controls are colored.</p></div>
+      <div class="theme-options" role="group" aria-label="Color theme">
+        <label class="theme-option"><input type="radio" name="uiTheme" value="luna" data-setting="uiTheme"><span class="theme-swatch luna-swatch">✦</span><span><strong>Luna colors</strong><small>Violet and rose on soft glass</small></span></label>
+        <label class="theme-option"><input type="radio" name="uiTheme" value="vscode" data-setting="uiTheme"><span class="theme-swatch vscode-swatch">◫</span><span><strong>Match VS Code</strong><small>Use your editor's active color theme</small></span></label>
+      </div>
+    </section>
+    <section class="settings-card" aria-labelledby="defaults-title">
+      <div class="section-head"><h2 id="defaults-title">Conversation defaults</h2><p>Applied when Codex starts a new conversation.</p></div>
+      <label class="setting-row"><span><strong>Default model</strong><small>Leave blank to use the Codex default.</small></span><input type="text" data-setting="model" placeholder="Auto" spellcheck="false"></label>
+    </section>
+    <section class="settings-card" aria-labelledby="access-title">
+      <div class="section-head"><h2 id="access-title">Access and permissions</h2><p>Set the default here. Use the shield beside the composer to change access for one chat.</p></div>
+      <label class="setting-row"><span><strong>Approval policy</strong><small>When Codex asks before tool actions.</small></span><select data-setting="approvalPolicy"><option value="on-request">On request</option><option value="never">Never</option><option value="untrusted">Untrusted</option></select></label>
+      <label class="setting-row"><span><strong>Sandbox</strong><small>Default filesystem access for new threads.</small></span><select data-setting="sandbox"><option value="workspace-write">Workspace write</option><option value="read-only">Read only</option><option value="danger-full-access">Full access</option></select></label>
+    </section>
+    <section class="settings-card" aria-labelledby="runtime-title">
+      <div class="section-head"><h2 id="runtime-title">Runtime and voice</h2><p>Paths and update checks for the local Codex runtime.</p></div>
+      <label class="setting-row"><span><strong>Check for runtime updates</strong><small>Check periodically for a newer Codex CLI.</small></span><input type="checkbox" data-setting="autoCheckRuntimeUpdates"></label>
+      <label class="setting-row"><span><strong>Check interval</strong><small>Hours between update checks, from 1 to 168.</small></span><input type="number" min="1" max="168" data-setting="autoUpdateIntervalHours"></label>
+      <label class="setting-row stacked"><span><strong>Codex executable</strong><small>Optional path. Blank uses Codex from your PATH.</small></span><input type="text" data-setting="codexExecutable" placeholder="Use PATH" spellcheck="false"></label>
+      <label class="setting-row stacked"><span><strong>npm executable</strong><small>Optional path for runtime update checks.</small></span><input type="text" data-setting="npmExecutable" placeholder="Use PATH" spellcheck="false"></label>
+      <label class="setting-row stacked"><span><strong>Voice transcriber Python</strong><small>Python environment containing faster-whisper.</small></span><input type="text" data-setting="transcriberPython" placeholder="Path to Python" spellcheck="false"></label>
+    </section>
+    <footer><span id="save-status" role="status"></span><button id="open-vscode">Open in VS Code Settings ↗</button></footer>
+  </main>
+  <script src="{{SCRIPT_URI}}"></script>
+</body>
+</html>

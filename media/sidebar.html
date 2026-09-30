@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="{{CSP}}">
+  <link rel="stylesheet" href="{{STYLE_URI}}">
+  <title>Codex conversations</title>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand"><span class="brand-mark">✦</span><div><strong>Codex</strong><small>Your coding companion</small></div></div>
+  </header>
+  <button id="new" class="primary-action" title="Open a new chat tab" aria-label="New chat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>New chat</span></button>
+  <section class="projects-panel" aria-label="Projects">
+    <div class="projects-heading"><span>PROJECTS</span><button id="new-project" title="Create project" aria-label="Create project">+</button></div>
+    <nav id="projects" aria-label="Project filters"></nav>
+  </section>
+  <div class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Search chats" aria-label="Search conversations"></div>
+  <div class="section-head"><span>Conversations <b id="count"></b></span><button id="refresh" title="Refresh conversations and usage" aria-label="Refresh conversations and usage"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M5.8 9A7 7 0 0 1 18 7l2 5M4 12l2 5a7 7 0 0 0 12.2-2"/></svg></button></div>
+  <main id="threads"><p class="empty-list">Loading conversations…</p></main>
+  <footer class="account-dock">
+    <div class="account-row"><span class="account-avatar">◉</span><div class="account-copy"><strong id="account-name">Loading account…</strong><small id="plan"></small></div><button id="settings" title="Open Codex Custom settings" aria-label="Open Codex Custom settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2h4l.6 2.2a8 8 0 0 1 1.8.8l2-1.2 2.8 2.8-1.2 2a8 8 0 0 1 .8 1.8L23 11v4l-2.2.6a8 8 0 0 1-.8 1.8l1.2 2-2.8 2.8-2-1.2a8 8 0 0 1-1.8.8L14 24h-4l-.6-2.2a8 8 0 0 1-1.8-.8l-2 1.2-2.8-2.8 1.2-2a8 8 0 0 1-.8-1.8L1 15v-4l2.2-.6a8 8 0 0 1 .8-1.8l-1.2-2 2.8-2.8 2 1.2a8 8 0 0 1 1.8-.8z" transform="translate(0 -1) scale(1 .94)"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+    <div class="usage-head"><span>USAGE</span><small id="usage-updated"></small></div>
+    <div id="usage"><p class="usage-empty">Loading usage…</p></div>
+    <div id="status" role="status"></div>
+  </footer>
+  <script src="{{SCRIPT_URI}}"></script>
+</body>
+</html>

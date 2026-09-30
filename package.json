@@ -1,0 +1,154 @@
+{
+  "name": "codex-custom",
+  "displayName": "Codex Custom",
+  "description": "A VS Code Codex client with separate chats, image and document attachments, and voice prompts.",
+  "version": "0.9.0",
+  "publisher": "codex-custom",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MuhammadRafay7/codex-extension.git"
+  },
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:codexCustom.sidebar",
+    "onCommand:codexCustom.openSidebar",
+    "onCommand:codexCustom.openChat",
+    "onCommand:codexCustom.updateRuntime"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codexCustom.openSidebar",
+        "title": "Codex Custom: Open Sidebar"
+      },
+      {
+        "command": "codexCustom.openChat",
+        "title": "Codex Custom: Open Chat"
+      },
+      {
+        "command": "codexCustom.updateRuntime",
+        "title": "Codex Custom: Update Codex Runtime"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codexCustom",
+          "title": "Codex Custom",
+          "icon": "$(sparkle)"
+        }
+      ]
+    },
+    "views": {
+      "codexCustom": [
+        {
+          "type": "webview",
+          "id": "codexCustom.sidebar",
+          "name": "Codex",
+          "when": "true"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Codex Custom",
+      "properties": {
+        "codexCustom.uiTheme": {
+          "type": "string",
+          "enum": [
+            "luna",
+            "vscode"
+          ],
+          "default": "luna",
+          "scope": "application",
+          "description": "Use Luna colors or match the active VS Code color theme in Codex Custom webviews."
+        },
+        "codexCustom.codexExecutable": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "description": "Optional path to the official Codex executable. Leave empty to resolve codex from PATH."
+        },
+        "codexCustom.npmExecutable": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "description": "Path to npm for checking and installing official Codex CLI updates."
+        },
+        "codexCustom.transcriberPython": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "description": "Python executable with faster-whisper installed for local voice dictation."
+        },
+        "codexCustom.autoCheckRuntimeUpdates": {
+          "type": "boolean",
+          "default": true,
+          "scope": "machine",
+          "description": "Periodically check for new Codex CLI versions and offer to install them."
+        },
+        "codexCustom.autoUpdateIntervalHours": {
+          "type": "number",
+          "default": 2,
+          "minimum": 1,
+          "maximum": 168,
+          "scope": "machine",
+          "description": "Hours between Codex CLI update checks."
+        },
+        "codexCustom.model": {
+          "type": "string",
+          "default": "",
+          "scope": "machine",
+          "description": "Optional model override. Empty lets Codex choose its configured/default model."
+        },
+        "codexCustom.approvalPolicy": {
+          "type": "string",
+          "enum": [
+            "on-request",
+            "never",
+            "untrusted"
+          ],
+          "default": "on-request",
+          "scope": "machine",
+          "description": "Default Codex approval policy for newly created threads."
+        },
+        "codexCustom.sandbox": {
+          "type": "string",
+          "enum": [
+            "read-only",
+            "workspace-write",
+            "danger-full-access"
+          ],
+          "default": "workspace-write",
+          "scope": "machine",
+          "description": "Default Codex sandbox mode for newly created threads."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "check-types": "tsc --noEmit",
+    "test": "node tests/features.cjs",
+    "vscode:prepublish": "npm run compile"
+  },
+  "dependencies": {
+    "markdown-it": "^15.0.2"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.2.0",
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.95.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}

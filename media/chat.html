@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="{{CSP}}">
+  <link rel="stylesheet" href="{{STYLE_URI}}">
+  <title>Codex Chat</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+    <div class="heading"><span class="mark">✦</span><div><strong id="title">New conversation</strong><small id="status">Starting…</small></div></div>
+    <div class="header-actions">
+      <button id="branch" class="new" title="Branch this conversation" aria-label="Branch this conversation" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="19" r="2"/><path d="M6 7v10M18 8c0 5-12 1-12 9"/></svg><span>Branch</span></button>
+      <button id="new" class="new" title="Open a new chat tab" aria-label="Open a new chat tab"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>New chat</span></button>
+    </div>
+    </div>
+  </header>
+  <main id="scroll"><div id="feed"></div></main>
+  <div class="bottom">
+    <button id="jump" title="Jump to latest message">↓ Latest</button>
+    <div id="writer-conflict" class="writer-conflict" hidden><span>This chat is active in another Codex session. Branch it to continue here.</span><button id="branch-conflict">Branch chat</button></div>
+    <div class="composer">
+      <div id="attachments"></div>
+      <textarea id="prompt" rows="2" placeholder="Ask Codex anything…" aria-label="Message Codex"></textarea>
+      <div class="composer-bar">
+        <div class="actions">
+          <div class="model-picker"><button id="model" type="button" aria-label="Choose model" aria-haspopup="listbox" aria-expanded="false"><span id="model-label">Auto model</span><span class="model-chevron" aria-hidden="true">⌄</span></button><div id="model-menu" role="listbox" aria-label="Available models" hidden></div></div>
+          <div class="access-picker"><button id="access" type="button" aria-label="Manage Codex access" aria-haspopup="menu" aria-expanded="false" title="Manage access"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 11 4.6-2.4 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><span id="access-label">Ask</span></button><div id="access-menu" role="menu" hidden><div class="access-heading">ACCESS FOR THIS CHAT</div><button type="button" data-mode="ask" role="menuitemradio"><strong>Ask for approval</strong><small>Edit this workspace; ask before extra access.</small></button><button type="button" data-mode="readOnly" role="menuitemradio"><strong>Read only</strong><small>Read files without making changes.</small></button><button type="button" data-mode="full" role="menuitemradio"><strong>Full access</strong><small>Access files and network without approval.</small></button></div></div>
+          <button id="attach" title="Attach image, document, or audio" aria-label="Attach file"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 11.5-7.9 7.9a5 5 0 0 1-7.1-7.1l8.6-8.6a3.5 3.5 0 0 1 5 5L9.4 17.9a2 2 0 0 1-2.8-2.8l8.5-8.5"/></svg></button>
+          <button id="mic" title="Dictate prompt" aria-label="Dictate prompt"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3m-4 0h8"/></svg></button>
+          <span id="hint">Enter to send · Shift+Enter for new line</span>
+        </div>
+        <div class="send-actions">
+          <button id="stop" title="Stop response" hidden>Stop</button>
+          <button id="send" title="Send message" aria-label="Send message"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div id="notice" role="status"></div>
+  </div>
+  <div id="command-menu" role="listbox" aria-label="Commands, skills, and files" hidden></div>
+  <script src="{{SCRIPT_URI}}"></script>
+</body>
+</html>
