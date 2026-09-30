@@ -107,3 +107,4 @@ The extension does not ask for or store an OpenAI API key itself. Authentication
 
 The app-server process executes with the same operating-system identity and workspace access available to the Codex CLI. Review Codex's current sandbox and approval configuration before enabling unattended automation.
 # codex-extension
+# codex-extension
