@@ -106,3 +106,4 @@ The message menu's delete action only hides a message in this extension. It does
 The extension does not ask for or store an OpenAI API key itself. Authentication is handled by the Codex runtime. Do not pass credentials through the Webview.
 
 The app-server process executes with the same operating-system identity and workspace access available to the Codex CLI. Review Codex's current sandbox and approval configuration before enabling unattended automation.
+# codex-extension
